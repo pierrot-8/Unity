@@ -1,0 +1,28 @@
+using UnityEngine;
+using System.Collections;
+
+public class TapUI : MonoBehaviour {
+
+	public GameObject title;
+	public GameObject tap;
+	
+	public float speed = 1f;
+
+	private SpriteRenderer tapRenderer;
+	private float alpha = 0;
+
+	// Use this for initialization
+	void Start () {
+		this.tapRenderer = GetComponent<SpriteRenderer>();
+		tapRenderer.color = new Color (0, 0, 0, 0);
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		this.tapRenderer = GetComponent<SpriteRenderer>();
+		if (title.transform.position.y <= 2) {
+						alpha = Mathf.Sin (Time.time * speed);
+						tapRenderer.color = new Color (1, 1, 1, alpha);
+				}
+	}
+}
