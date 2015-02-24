@@ -1,0 +1,56 @@
+using UnityEngine;
+using System.Collections;
+
+public class BallInstans : MonoBehaviour {
+
+	public GameObject yellowPrehab;
+	public GameObject redPrehab;
+	public GameObject greenPrehab;
+	public GameObject bluePrehab;
+	public GameObject orengPrehab;
+
+	public int objnum;
+
+	public GameObject ballSpawnerPoint;
+
+
+	public int type;
+
+	// Use this for initialization
+	void Start () {
+		InstansBall (50);
+	
+	}
+	
+	// Update is called once per frame
+	void Update () {
+	
+	}
+
+	private void InstansBall(int objnum){
+				for (int i=0; i<objnum; i++) {
+						GameObject ball = ChoosePrehab ();
+						Vector3 position = ballSpawnerPoint.transform.position;
+						position.x = Random.Range (-4, 4);
+						position.y = Random.Range (7, 9);
+						Instantiate (ball, position, ball.transform.rotation);
+				}
+		}
+
+	private GameObject ChoosePrehab(){
+				type = Random.Range (1, 6);
+				if (type == 1) {
+						return yellowPrehab;
+				} else if (type == 2) {
+						return redPrehab;
+				} else if (type == 3) {
+						return greenPrehab;
+				} else if (type == 4) {
+						return bluePrehab;
+				} else {
+						return orengPrehab;
+				}
+		}
+
+
+}
