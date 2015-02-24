@@ -1,0 +1,28 @@
+using UnityEngine;
+using System.Collections;
+
+public class Title : MonoBehaviour {
+
+	public GameObject title;
+
+	// Use this for initialization
+	void Start () {
+		Vector3 pos = new Vector3 (0, 9, -2);
+		title.transform.position = pos; 
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		TitleMove ();
+		if (transform.position.y <= 2) {
+						Vector3 finishPos = new Vector3 (0, 2, -2);
+						title.transform.position = finishPos;
+				}
+
+	}
+
+	public void TitleMove(){
+				Vector3 pos = new Vector3 (0, -0.08f, 0);
+				title.transform.Translate (pos);
+		}
+}
