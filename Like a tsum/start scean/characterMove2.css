@@ -1,0 +1,23 @@
+using UnityEngine;
+using System.Collections;
+
+public class CharactoerDance2 : MonoBehaviour {
+
+	private float rote = -0.5f;
+
+	// Use this for initialization
+	void Start () {
+	
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		Dance ();
+	
+	}
+
+	private void Dance(){
+				Vector3 dance = new Vector3 (0, 0, rote);
+				transform.Rotate (dance);
+		}
+}
