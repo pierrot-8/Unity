@@ -1,0 +1,32 @@
+using UnityEngine;
+using System.Collections;
+
+public class KeyMoveRight : MonoBehaviour {
+	
+	public RaycastHit hit;
+	public bool flgred = false;
+	public GameObject buttonRight;
+	public GameObject player;
+	
+	// Use this for initialization
+	void Start () {
+		
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		if (Input.GetMouseButton (0)) {
+			Vector3 pos = Input.mousePosition;
+			Ray ray = Camera.main.ScreenPointToRay (pos);
+			if (Physics.Raycast (ray, out hit,100)) {
+				buttonRight = hit.collider.gameObject;
+				if (buttonRight.tag == "RightKey") {
+					player = GameObject.Find ("siran");
+					player.transform.Translate (new Vector2(0.08f,0));
+				}
+			}
+		}
+		
+	}
+
+}
